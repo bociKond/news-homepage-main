@@ -1,0 +1,251 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+:root {
+  --Soft-orange: hsl(35, 77%, 62%);
+  --Soft-red: hsl(5, 85%, 63%);
+
+  --Off-white: hsl(36, 100%, 99%);
+  --Grayish-blue: hsl(233, 8%, 79%);
+  --Dark-grayish-blue: hsl(236, 13%, 42%);
+  --Very-dark-blue: hsl(240, 100%, 5%);
+
+  --paragraph-fz: 15px;
+  --fw-medium: 400;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+}
+body {
+  font-family: "Inter", sans-serif;
+  padding-inline: 12vw;
+  margin-inline: auto;
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr .5fr;
+  gap: 2rem;
+  margin-block-end: 3rem;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 20vh;
+  position: relative;
+}
+.logo{
+  position: absolute;
+  left: 0;
+}
+nav{
+  position: absolute;
+  right: 0;
+}
+nav ul {
+  display: flex;
+  gap: .5rem;
+}
+.nav-button {
+  padding: 1rem;
+  color: var(--Dark-grayish-blue);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+[data-hover="orange"]:is(:hover, :focus) {
+  color: var(--Soft-red);
+}
+#intro{
+  display: grid;
+  gap: 1rem;
+}
+
+#intro img{
+  object-fit: cover;
+}
+#intro div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#intro div div{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.read-more{
+  background-color: var(--Soft-red);
+  color: var(--Off-white);
+  border: none;
+  padding: .75rem 1.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  width: max-content;
+}
+.read-more:is(:hover, :focus){
+  background-color: var(--Very-dark-blue);
+}
+
+#side{
+  background-color: var(--Very-dark-blue);
+  padding: 1rem 1.5rem;
+}
+h1{
+  line-height: 1;
+  font-size: 3rem;
+  color: var(--Very-dark-blue);
+  font-weight: var(--fw-extra-bold);
+}
+h2{
+  color: var(--Soft-orange);
+  font-size: 1.5rem;
+}
+h3{
+  color: var(--Off-white);
+}
+p{
+  color: var(--Grayish-blue);
+}
+.side-content{
+  border-bottom: 2px solid var(--Grayish-blue);
+  padding: 1rem 0;
+}
+.side-content:last-of-type{
+  border-bottom: none;
+}
+
+/* carousel */
+h4{
+  color: var(--Grayish-blue);
+  font-weight: var(--fw-extra-bold);
+  font-size: 2rem;
+  line-height: 1;
+}
+h5{
+  color: var(--Very-dark-blue);
+  font-weight: var(--fw-bold);
+  font-size: 1rem;
+}
+#carousel{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.card{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: .5fr 1fr;
+  aspect-ratio: 16/9;
+  max-width: 335px;
+  place-items: center;
+}
+.card-text{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.card p{
+  font-size: .9rem;
+  color: var(--Dark-grayish-blue);
+}
+
+#ham-img{
+  display: none;
+  position: absolute;
+  top: auto;
+  right: 1rem;
+  z-index: 99;
+}
+
+@media screen and (width < 600px){
+  :root{
+    font-size: .85rem;
+  }
+  header{
+    /* position: fixed; */
+    top: 0;
+    left: 1rem;
+    right: 1rem;
+  }
+  body{
+    padding-inline: 1rem;
+  }
+  main{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #intro div{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #ham-img{
+    display: block;
+  }
+  nav{
+    display: none;
+    position: fixed;
+    right: 0;
+    left: 40vw;
+    top: 0;
+    bottom: 0;
+    background-color: var(--Off-white);
+    box-shadow: 0 0 9999px 9999px rgba(0, 0, 0, .6);
+  }
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-inline-start: 1.5rem;
+    position: relative;
+    top: 20%;
+  }
+  .nav-button{
+    font-size: 2rem;
+  }
+  #carousel{
+    display: flex;
+    flex-direction: column;
+  }
+}
